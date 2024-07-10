@@ -7,7 +7,7 @@ from django.template import Template, Context
 def saludo(request):
     return HttpResponse("Hola mundo!, hola Coder!")
 
-def leandro(request):
+def mostrar_nombres(request):
     texto = "Soy Leandro Romero<br>Cursando Python"
     return HttpResponse(texto)
 
