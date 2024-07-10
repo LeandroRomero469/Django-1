@@ -9,6 +9,7 @@ def saludo(request):
 
 def leandro(request):
     texto = "Soy Leandro Romero<br>Cursando Python"
+    return HttpResponse(texto)
 
 def dia_de_hoy(request):
     dia = dt.now()
@@ -18,7 +19,7 @@ def dia_de_hoy(request):
 def probando_template(request):
 
     # Abrimos el archivo html
-    mi_html = open('./Clases_Coder/plantillas/index.html')
+    mi_html = open('./Proyecto1/plantillas/index.html')
 
     # Creamos el template haciendo uso de la clase Template
     plantilla = Template(mi_html.read())
