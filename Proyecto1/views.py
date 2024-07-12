@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from datetime import datetime as dt
 # Agregamos al encabezado del archivo el import de Template y de Context
-from django.template import Template, Context
+from django.template import Template, Context, loader
 
 
 def saludo(request):
@@ -15,6 +15,18 @@ def dia_de_hoy(request):
     dia = dt.now()
     texto = f"Hoy es:<br>{dia}"
     return HttpResponse(texto)
+
+def usando_loader(request):
+    nombre = "Leandro"
+    apellido = "Romero"
+    diccionario = {
+        "nombre": nombre,
+        "apellido:": apellido,
+        "notas": [4,8,9,10,7,6]
+    }
+    plantilla = loader.get_template('index.html')
+    documento = plantilla.render(diccionario)
+    return HttpResponse(documento)
 
 def probando_template(request):
 
