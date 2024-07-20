@@ -1,10 +1,17 @@
 from django.http import HttpResponse
+from django.shortcuts import render
 
-# Create your views here.
-from primera_app.models import Curso
+def inicio(request):
+    return render(request, "primera_app/index.html")
 
-def curso(request, nombre, numero):
-    curso = Curso(nombre=nombre, camada=int(numero))
-    curso.save()
-    documento = f"Curso: {curso.nombre}<br>Camada: {curso.camada}"
-    return HttpResponse(documento)
+def cursos(request):
+    return render(request, "primera_app/cursos.html")
+
+def profesores(request):
+    return render(request, "primera_app/entregables.html")
+
+def estudiantes(request):
+    return render(request, "primera_app/estudiantes.html")
+
+def entregables(request):
+    return render(request, "primera_app/profesores.html")
